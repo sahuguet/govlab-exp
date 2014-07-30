@@ -1,18 +1,43 @@
+function fn_NO_COMMENT(size, comment_id) {
+    return '<span style="font-size:' +  size + 'px;"> <i id="' + comment_id + '-icon" class="fa fa-comments-o"></i></span>';
+};
+function fn_OK_COMMENT(size, comment_id) {
+    return '<span style="font-size:' +  size + 'px;"> <i id="' + comment_id + '-icon" class="fa fa-comments"></i></span>';
+};
+
+
 var __HR__ = "<hr style='background-color: #333; border: none; height:0.5px;'/>";
+
+var myDataRef = null;
+var obj = null;
+
 
 $(document).ready(function() {
     console.log("Document fully loaded ...");
+
     
+
+    
+    var fb_database = $('#annotator').attr('gl-fb-database');
+    console.log("The firebase DB is `" + fb_database + "`.");
+
+    myDataRef = new Firebase(fb_database);
+
+    var annotation_class = $('#annotator').attr('gl-annotation-class');
+    console.log("jQuery class of elements to be annotated: `" + annotation_class + "`.");
+    console.log("Count: " + $(annotation_class).length + ".");
+
     // We had the <div> that wil play the role of the tooltip.
     $('body').prepend('<div style="display:none;" class="tooltiptext"><div style="height:400px;"></div></div>');
     
     // We create a unique id for all commentable sections.
-    $('p, .ok_ul').each( function(index, value) {
+    $(annotation_class).each( function(index, value) {
 	var item = $(value);
-	item.attr('id', CryptoJS.MD5(item.text()).toString());
+	var comment_id = CryptoJS.MD5(item.text()).toString();  
+	item.attr('id', comment_id);
 	
 	// We add the comment button and the business logic.
-	var commentItem = $('<span style="font-size:12px;"> <i class="fa fa-comments"></i></span>');
+	var commentItem = $(fn_NO_COMMENT(12, comment_id));
 	commentItem.attr('id', item.attr('id') + '-comment');
 	item.append(commentItem);
 	commentItem.click(function() { showComments(item.attr('id')); });
@@ -27,26 +52,32 @@ $(document).ready(function() {
 		target: 'mouse'
 	    }
 	}); // .click()
+	showComments(comment_id);
 	
-	// We fetch the data from the database.
 	
     }); // .each()
     
     
 }); // document.ready()
 
-
-var myDataRef = new Firebase('https://w7h4l3wf4ie.firebaseio-demo.com/nhs-report');
-var obj = null;
-
 function showComments(comment_id) {
     console.log("Fetching comment for id=" + comment_id);
     myDataRef.child(comment_id).once('value', function (snapshot) {
 	obj = snapshot.val();
-	console.log(Object.keys(obj?obj:[]).length +  " comment(s) for this paragraph.");
+	var numberOfComments = Object.keys(obj?obj:[]).length;
+	
+	// We update the icon accordingly.
+	$('#' + comment_id + '-icon').removeClass('fa-comments fa-comments-o');
+	if (numberOfComments > 0) {
+	    $('#' + comment_id + '-icon').addClass('fa-comments');
+	} else {
+	    $('#' + comment_id + '-icon').addClass('fa-comments-o');
+	};
+
+	console.log(numberOfComments +  " comment(s) for this paragraph.");
 	console.log(obj);
 	
-	var content = Object.keys(obj?obj:[]).length +  " comment(s) for this paragraph.";
+	var content = numberOfComments +  " comment(s) for this paragraph.";
 	content += __HR__;
 	for( var cid in obj) {
             content += printComment(obj[cid]);
