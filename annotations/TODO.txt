@@ -1,0 +1,7 @@
+- use javascript to include css and script files.    [X]
+- check if we can have attributes in script element. [X]
+- implement the realtime element.                    [ ]
+- make sure only one tooltip at the same time.       [ ]
+- no comment => black buble.                         [ ]
+- >0 comment => black bubble.                        [ ]
+- use Moustache for UI.                              [ ]
