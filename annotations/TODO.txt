@@ -9,3 +9,4 @@
 - use Moustache for UI.                              [ ]
 - show how many on the doc at a given time           [ ]
 - write documentation & blog                         [ ]
+- implement security via rules                       [ ]
