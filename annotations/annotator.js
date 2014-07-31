@@ -9,7 +9,9 @@ function fn_OK_COMMENT(size, comment_id) {
 var __HR__ = "<hr style='background-color: #333; border: none; height:0.5px;'/>";
 
 var myDataRef = null;
+var auth = null;
 var obj = null;
+var myUserId = null;
 
 
 $(document).ready(function() {
@@ -23,6 +25,17 @@ $(document).ready(function() {
 
     myDataRef = new Firebase(fb_database);
 
+    //Create an Firebase Simple Login client so we can do Facebook auth
+    auth = new FirebaseSimpleLogin(myDataRef, function(error, user) {
+	if(user) {
+	    if (user.provider == "anonymous") {
+		user.displayName = "?anonymous?";
+	    }
+	    myUserId = user;
+	    console.log(user.id + " (" + user.first_name + " " + user.last_name + ")");
+	}
+    });
+    
     var annotation_class = $('#annotator').attr('gl-annotation-class');
     console.log("jQuery class of elements to be annotated: `" + annotation_class + "`.");
     console.log("Count: " + $(annotation_class).length + ".");
@@ -42,14 +55,21 @@ $(document).ready(function() {
 	item.append(commentItem);
 	commentItem.click(function() { showComments(item.attr('id')); });
 	commentItem.qtip({
+	    
             content: {
-		text: "No comment so far." + __HR__
+		title: {
+		    text: "No comment so far",
+		    button: true },
+		text: ""
             },
-            hide: {
-		event: 'click' 
-            },
-	    position2: {
-		target: 'mouse'
+	    style: {
+		classes: 'qtip-blue qtip-rounded'
+	    },
+	    show: 'click',
+            hide: 'unfocus',
+	    position: {
+		my: 'top center',  
+		at: 'bottom center'
 	    }
 	}); // .click()
 	showComments(comment_id);
@@ -58,7 +78,24 @@ $(document).ready(function() {
     }); // .each()
     
     
+
+    
 }); // document.ready()
+
+function submitComment(comment_id) {
+    console.log("Submitting comment");
+    if (myUserId == null) {
+	console.log("You must login first.");
+	//auth.login("facebook");
+	//auth.login("twitter");
+	auth.login("anonymous");
+	return;
+    }
+    var comment = myDataRef.child(comment_id);
+    var content = $('#' + comment_id + '-new').val();
+    comment.push({ 'author': myUserId.displayName, 'ts': Date.now(), 'comment': content });
+    console.log("Comment submitted.");
+}
 
 function showComments(comment_id) {
     console.log("Fetching comment for id=" + comment_id);
@@ -77,14 +114,19 @@ function showComments(comment_id) {
 	console.log(numberOfComments +  " comment(s) for this paragraph.");
 	console.log(obj);
 	
-	var content = numberOfComments +  " comment(s) for this paragraph.";
-	content += __HR__;
+	var content = "";
 	for( var cid in obj) {
             content += printComment(obj[cid]);
             content += __HR__;
 	}
-	content += addCommentSection(comment_id);
-	$('#' + comment_id + '-comment').qtip('options', 'content.text', content);
+	full_content = $('<div style="padding: 5px 5px 5px 5px; border: 1px solid; height:200px; overflow-y:auto;">' + content + '</div>' + addCommentSection(comment_id));
+	console.log(full_content);
+	
+	//$('#' + comment_id + '-comment').qtip('options', 'content.text', full_content);
+	//$('#' + comment_id + '-comment').qtip('options', { 'content': { 'text': full_content,
+	//						   'title': numberOfComments + ' comment(s).' } });
+	$('#' + comment_id + '-comment').qtip('api').set('content.text', full_content).set('content.title', numberOfComments + ' comment(s).');
+	
     }, function (errorObject) {
 	console.log('The read failed: ' + errorObject.code);
     });
@@ -97,15 +139,16 @@ function printComment(comment) {
 }
 
 
-function submitComment(comment_id) {
-    console.log("Submitting comment");
-    var comment = myDataRef.child(comment_id);
-    var content = $('#' + comment_id + '-new').val();
-    comment.push({ 'author': 'anonymous', 'ts': Date.now(), 'comment': content });
-    console.log("Comment submitted.");
-}
+
 
 function addCommentSection(comment_id) {
     // We create a piece of HTML with corresponding callback to store a comment.
     return '<div><textarea id="' + comment_id + '-new"></textarea><button onclick="submitComment(\'' + comment_id + '\');" type="button">Submit comment</button></div>';
 }
+
+/* Resources
+
+- Firebase Facebook authentication
+https://www.firebase.com/docs/web/guide/simple-login/facebook.html
+
+*/
