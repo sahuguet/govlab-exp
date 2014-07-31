@@ -10,3 +10,4 @@
 - show how many on the doc at a given time           [ ]
 - write documentation & blog                         [ ]
 - implement security via rules                       [ ]
+- escape HTML content in comments for security       [ ]
