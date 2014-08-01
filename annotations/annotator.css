@@ -1,0 +1,7 @@
+
+.comment { font-family: helvetica; }
+
+.login-icon { display: inline-block; margin-left: 5px; margin-right: 5px; }
+.logged-in { color: red; }
+
+.comment-attribution { color: grey; text-align: right; font-size:80%; }

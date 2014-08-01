@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <script id="template" type="x-tmpl-mustache">
+      Hello {{ name }}!
+    </script>
+  </body>
+</html>
+
+
+<!-- using HTML imports
+Mustache.render($($('link[href="templates.html"]')[0].import).find('#template').html(), { 'name': 'Arnaud' })
+-->
