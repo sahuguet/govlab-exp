@@ -1,0 +1,23 @@
+digraph ER{
+        node[shape=box];
+	edge[dir="forward", arrowhead="none", arrowtail="none", headlabel="1", taillabel="1", labelfontsize=6.0, labeldistance=1];
+	Profile;
+        User;
+	Pod;
+	Team;
+	Topic;
+	Project;
+	Mentor;
+	Milestone;
+	Todo [label="Todo/Snippet"];
+	{rank=same;Pod;Topic}	
+        {rank=same;User,Team,Project, Profile, Mentor}
+        Profile -> User;
+	User -> Pod [taillabel="*", headlabel="*"];
+	User -> Todo [headlabel="*"];
+	User -> Team [taillabel="*"];
+	Team -> Topic;
+	Team -> Project;
+	Project -> Mentor [taillabel="*", headlabel="*"];
+	Project -> Milestone [headlabel="*"];	
+}

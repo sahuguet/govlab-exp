@@ -1,0 +1,23 @@
+.project-slide {
+    //background-color: purple;
+    border-style: solid;
+    border-width: 1px;
+    height: 400px;
+    //width: 200px;
+    //border-style: black;
+	//background:#fff;
+	//color:#3498db;
+	padding:2%;
+	// position:relative;
+	margin: 5px 5px 5px 5px;
+	padding: 10px 10px 10px 10px;
+}
+
+h3.project-slide {
+	font-size:28px;
+	font-weight: bolder;
+	text-align:center;
+	margin:10px;
+
+}
+
