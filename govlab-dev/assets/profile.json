@@ -1,0 +1,163 @@
+
+{
+  "title": "Mentee",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "First and Last name",
+      "minLength": 4
+    },
+    "email": { 
+      "type": "string",
+      "description": "Primary email",
+      "minLength": 8
+    },
+    "phone number": {
+      "type": "string",
+      "description": "Enter 10-digit phone number, no spaces",
+      "minimum": 10,
+      "maximum": 10
+    },
+    "social media": {
+      "type": "array",
+      "format": "table",
+      "title": "Social Media",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Social Media",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Twitter",
+              "Facebook",
+              "Google+",
+              "other"
+            ]
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sharing": {
+      "type": "string",
+      "description": "Can Govlab use your social media accounts to help form a better match?",
+      "enum": [
+        "Yes, please!",
+        "No, thanks"
+      ]
+
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 18,
+      "maximum": 99
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "description": "Please enter state abbreviation",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "country": {
+      "type": "string"
+    },
+    "current student": {
+      "type": "string",
+      "description": "Are you a current student?",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "school": {
+      "type": "string",
+      "description": "What school are you attending (or did you graduate from)?"
+    },
+    "sector": {
+      "type": "string",
+      "description": "What type of organization are you interested in working with?",
+      "enum": [
+        "National government",
+        "State/regional goverment",
+        "Municipal/city government",
+        "NGO/non-profit/international body",
+        "For-profit corporation",
+        "Other"
+        ] 
+    },
+    "specialties": {
+      "type": "string",
+      "description": "What areas do you plan to specialize in?",
+      "enum": [
+        "Public policy, law or regulation",
+        "Business models, operations or leadership",
+        "Scientific research",
+        "Technology systems (design, build, user experience, oversight)",
+        "Other"
+      ]
+    },
+    "experience": {
+      "type": "array",
+      "format": "table",
+      "title": "Experience",
+      "uniqueItems": true,
+      "description": "Tell us more about your experiences running or contributing to projects",
+      "items": {
+        "type": "object",
+        "title": "Experience",
+        "properties": {
+          "year": {
+            "type": "integer"
+          },
+          "project name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "availability": {
+      "type": "string",
+      "description": "How many hours a week are you availabile for mentorship oportunities?",
+      "enum": [
+        "Less than 1 hour",
+        "1-2 hours",
+        "2-3 hours",
+        "3 or more hours"
+      ]
+    },
+    "contribution": {
+      "type": "string",
+      "description": "Tell us what makes you special"
+    },
+    "skills (want)": {
+      "type": "string",
+      "description": "List your technical skills above (comma seperated values)"
+    },
+    "skills (need)": {
+      "type": "string",
+      "description": "List the technical skills you wish to acquire above (comma seperated values)"
+    }
+
+  }
+}
