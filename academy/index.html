@@ -12,24 +12,27 @@
     <link href="includes/slick/slick.css"    rel="stylesheet" type="text/css" />
     <link href="includes/style.css"          rel="stylesheet">
     <link href="includes/project-gallery.css"          rel="stylesheet"> -->
+    <link rel="stylesheet" href="assets/icomoon/style.css"></head>
     <link rel="stylesheet" href="scss/styles.css">
     <script src="includes/modernizr.js"></script> <!-- Modernizr -->
 
 </head>
 
 <body>
-
-    <!-- Site header and navigation -->
+  <nav class="b-navigation" role="navigation">
+    <h2>Menu</h2>
+    <a href="http://thegovlab.org">GovLab</a>
+    <a href="#">Library</a>
+    <a href="#gallery-section">Project Gallery</a>
+    <a href="https://docs.google.com/a/thegovlab.org/document/d/1gJOxnCdC2DdUnBw9M7fViMpLzc7LZrlPL5iFRspDzw0/pub">FAQ</a>
+    <a href="mailto:info-academy@thegovlab.org">Contact Us</a>
+    <a id="nav-sign-in" href="https://govlab-dev.appspot.com">Sign-in</a>
+  </nav>  
+  <div class="b-top-layer">
     <header role="header">
       <div class="b-centered">
-        <nav class="b-navigation" role="navigation">
-            <a href="http://thegovlab.org">GovLab</a>
-            <a href="#">Library</a>
-            <a href="#gallery-section">Project Gallery</a>
-            <a href="https://docs.google.com/a/thegovlab.org/document/d/1gJOxnCdC2DdUnBw9M7fViMpLzc7LZrlPL5iFRspDzw0/pub">FAQ</a>
-            <a href="mailto:info-academy@thegovlab.org">Contact Us</a>
-            <a id="nav-sign-in" href="https://govlab-dev.appspot.com">Sign-in</a>
-        </nav>
+        <span class="e-trigger icon-menu"></span>
+        
         <div class="b-branding">
           <a href="#" class="b-govlab-logo"><img src="assets/govlab-logo.png" alt=""></a>
           <span class="b-academy-logo"><img src="assets/academy-logo.png" alt=""></span>
@@ -68,7 +71,7 @@
       </blockquote>
     </section>
 
-    <section class="b-centered b-content">
+    <section id="gallery-section" class="b-centered b-content">
       <h1>Some of our past projects</h1>
       <div class="b-slider">
         <div class="e-slider-strip">
@@ -132,9 +135,10 @@
             </div>
         </div>
     </footer>
-
+  </div>
     <!-- Include jQuery and bootstrap JS plugins -->
     <script type="text/javascript" src="includes/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
     <!--<script type="text/javascript" src="includes/jquery/jquery-migrate-1.2.1.min.js"></script> -->
     <!--<script type="text/javascript" src="includes/bootstrap/js/bootstrap.min.js"></script> -->
     <!--<script type="text/javascript" src="includes/jquery/jquery.onepage-scroll.min.js"></script> -->
