@@ -1,0 +1,125 @@
+@media only screen and (max-width : 400px) {
+  .b-centered {
+    width: 390px / 400px * 100%;
+    margin: 0 5px;
+  }
+
+  .b-govlab-logo {
+    display: block;
+    padding: 10px 0 10px 10px;
+
+    img {
+      max-width: 40%; 
+    }
+  }
+  
+  .b-branding {
+    text-align: center;
+  }
+
+  .b-academy-logo {
+    width: 80px;
+    height: 80px;
+    margin: 10px 5px 0 0;
+    display: inline-block;
+    border: 3px solid $primary-color;
+    @include circle;
+    overflow: hidden;
+
+
+    img {
+      width: 70%;
+      position: relative;
+      top: 15%;
+    }
+  }
+
+  .b-navigation {
+    &::before {
+      
+    }
+
+    a {
+      display: none;
+      // display: block;
+    }
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: $primary-color;
+    letter-spacing: .6px;
+    margin-top: 20px;
+    // border-top: 1px solid $gray_20;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: $gray_80;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: $gray_60;
+  }
+
+  .b-button {
+    display: block;
+    width: 345px / 400px * 100%;
+    text-align: center;
+  }
+
+  .b-quotes {
+    margin: 10px 20px 0 20px;
+    border-bottom: 1px solid $gray_10;
+
+    .e-quote-author {
+      display: block;
+      text-align: right;
+      margin-bottom: 5px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+}
+
+.b-resources {
+  h2 {
+    margin: 30px 0 0;
+  }
+
+  ul {
+    margin-top: 0;
+  }
+}
+
+footer {
+  padding: 10px;
+
+  h3 {
+    font-weight: 400;
+    margin: 5px 0;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  .b-footer-section {
+    border-bottom: 1px solid $white_10;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.b-slider {
+  .e-slide {
+    width: 385px;
+  }
+}
+
+} // End of media query
