@@ -9,10 +9,49 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
+- url: /snippets/.*
+  script: snippets.app
+  login: required
+
+- url: /profile
+  script: profile.app
+  #login: required
+
+- url: /zotero
+  script: zotero_app.app
+
+- url: /auth
+  script: test_auth.app
+  login: required
+
+- url: /allusers
+  script: account_services.app
+  login: required
+
+- url: /dashboard
   script: main.app
-#  login: required
+  login: required
+
+- url: /directory
+  script: test_auth.app
+  login: required
+
+- url: /oauth2callback
+  script: test_auth.app
+
+- url: /
+  script: main.app
+
+- url: /assets
+  static_dir: assets
+
+- url: /css
+  static_dir: css
 
 libraries:
 - name: webapp2
   version: "2.5.2"
+- name: jinja2
+  version: latest
+- name: pycrypto
+  version: latest
