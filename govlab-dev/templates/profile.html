@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Govlab Profile for {{user}}</title>
+    
+    <!-- Foundation CSS framework (Bootstrap and jQueryUI also supported) -->
+    <link rel='stylesheet' href='http://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.min.css'>
+    <link rel='stylesheet' href2='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+    <!-- Font Awesome icons (Bootstrap, Foundation, and jQueryUI also supported) -->
+    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/jsoneditor.min.js"></script>
+    
+    <script>
+    // Set the default CSS theme and icon library globally
+    JSONEditor.defaults.theme = 'bootstrap3';
+    JSONEditor.defaults.iconlib = 'fontawesome4';
+    </script>
+  </head>
+  <body>
+    <div class='row'>
+      <div class='medium-12 columns'>
+        <h1>Govlab Profile for {{user}}</h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='medium-12 columns'>
+        <p> Welcome to the Gov 3.0 Course mentoring program! </p>
+        <p> We hope you will sign up to be mentored by one of our alumni mentors.</p>
+        <p> GovLab Academy is training and nurturing a new generation of problem solvers who possess the multidisciplinary skills to become effective agents of change. The goal of the mentoring program is to help participants develop an innovative approach to solving a public problem and advance that idea as close as possible to implementation. </p>
+
+        <p> Those who complete the program are also eligible for a fellowship to continue work on their projects. </p>
+      </div>
+    </div>
+    {% if owner %}
+    <form id="the_form" method="POST" action="/profile">
+      <input id="profile_data_field" name="profile_data" type="hidden" value=""/>
+
+    <div class='row'>
+      <div class='medium-12-columns'>
+        <button id='submit' class='secondary tiny'>Submit</button>
+        <!--<button id='restore' class='secondary tiny'>Restore to Default</button>-->
+        <span id='valid_indicator' class='label'></span>
+     
+      </div>
+    </div>
+    {% endif %}
+
+    <div class='row'>
+      <div id='editor_holder' class='medium-12 columns'></div>
+    </div>
+    </form>
+<!--
+{{profile_data|safe}}
+-->
+
+    <script>
+      
+      //Initialize the editor
+      var editor = new JSONEditor(document.getElementById('editor_holder'),{
+        // Enable fetching schemas via ajax
+        ajax: true,
+        //remove extra butts
+        disable_edit_json: true,
+        disable_properties: true,
+        no_additional_properties: true,
+        disable_collapse: true,
+        
+        // The schema for the editor
+        schema: {
+          $ref: "assets/profile.json",
+          format: "grid"
+        },
+        
+        // Seed the form with a starting value
+      {% if profile_data %} startval: {{profile_data|safe}} {% endif %}
+
+      });
+
+  editor.on('ready',function() {
+    // Now the api methods will be available
+    {% if not owner %} editor.disable() {% endif %}
+  });
+
+      {% if owner %}
+      // Hook up the submit button to log to the console
+      document.getElementById('submit').addEventListener('click',function() {
+        // Get the value from the editor
+        console.log(editor.getValue());
+        var json = JSON.stringify(editor.getValue());
+        console.log(json);
+        $('#profile_data_field').val(json);
+        $('#the_form').submit();
+      });
+      {% endif %}
+      
+      // Hook up the Restore to Default button
+      //document.getElementById('restore').addEventListener('click',function() {
+      //  editor.setValue(starting_value);
+      //});
+      
+      // Hook up the validation indicator to update its 
+      // status whenever the editor changes
+      editor.on('change',function() {
+        // Get an array of errors from the validator
+        var errors = editor.validate();
+        
+        var indicator = document.getElementById('valid_indicator');
+        
+        // Not valid
+        if(errors.length) {
+          indicator.className = 'label alert';
+          indicator.textContent = 'not valid';
+        }
+        // Valid
+        else {
+          indicator.className = 'label success';
+          indicator.textContent = 'valid';
+        }
+      });
+    </script>
+  </body>
+</html>

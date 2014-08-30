@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Your Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		function getImage() {
+			var config = {
+          	'client_id': '408928117470-3goeeh5rcjgou24h1i3hnvlaqt6o1gdo.apps.googleusercontent.com',
+          	'scope': 'https://www.googleapis.com/auth/plus.me'
+        	};
+        	gapi.auth.authorize(config, function() {
+        		console.log('login complete');
+         		console.log(gapi.auth.getToken());
+				gapi.client.load('plus', 'v1', function() {
+          			var request = gapi.client.plus.people.get({'userId': 'me'});
+          			request.execute(function(resp) {
+          				console.log(resp);
+            			$('#me').attr('src', resp.image.url);
+           			});
+           		}); // load()
+			}); // authorize
+        } // getImage()
+    </script>
+    
+     <script>
+//	$( document ).ready(function() {
+//    	getImage();
+//  }); // document.ready()
+    </script>
+
+</head>
+<body>
+	<h1>Welcome, this is your dashboard &nbsp; <img class="avatar" id="me" src=""/></h1>
+<h2>Latest News</h2>
+<div id="latest-news">
+	<iframe src="https://docs.google.com/a/thegovlab.org/document/d/1PVAkn_UUHhc1OgQ2bSFznZE-m54dT8UDPm8WzF3hLlI/pub?embedded=true&rm=minimal" frameborder="0" width="100%"></iframe>
+</div>
+
+<h2>Onboarding</h2>
+<iframe src="https://docs.google.com/a/thegovlab.org/presentation/d/1f5E--vE24Bz95umWj5cFGho5SPnyUSaf7_AsZd8HYxs/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<h2>Your weekly snippet</h2>
+<div id="snippets">
+<iframe src="https://govlab-dev.appspot.com/snippets/?embedded=true" frameborder="0" width="480"></iframe>
+</div>
+
+<h2>My Calendar</h2>
+<iframe src="https://www.google.com/calendar/embed?src={{user}}&ctz=America/New_York&showTitle=0" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+
+<h2>My Documents</h2>
+<iframe src="https://drive.google.com/embeddedfolderview?id=0B-BTzZGOWDTHc3ZNcWlKaUpSU00#list" width="480" height="300" frameborder="0"></iframe>
+
+
+<script src="https://apis.google.com/js/client.js?onload=getImage"></script>
+
+</body>
+</html>
