@@ -1,184 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <!-- Set the viewport so this responsive site displays correctly on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The GovLab Academy</title>
     <!-- Include bootstrap CSS -->
-    <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='includes/onepage-scroll.css' rel='stylesheet' type='text/css'>
     <link href="includes/slick/slick.css"    rel="stylesheet" type="text/css" />
     <link href="includes/style.css"          rel="stylesheet">
-    <link href="includes/project-gallery.css"          rel="stylesheet">
+    <link href="includes/project-gallery.css"          rel="stylesheet"> -->
+    <link rel="stylesheet" href="assets/icomoon/style.css"></head>
+    <link rel="stylesheet" href="scss/styles.css">
+    <script src="includes/modernizr.js"></script> <!-- Modernizr -->
 
 </head>
-<body>
 
-    <!-- Site header and navigation -->
-    <header class="top" role="header">
-        <div class="container">
-            <a href="#" class="navbar-brand pull-left">
-                GovLab Academy
-            </a>
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </button>
-            <nav class="navbar-collapse collapse" role="navigation">
-                <ul class="navbar-nav nav">
-                    <li><a href="http://thegovlab.org">GovLab</a></li>
-                    <li><a href="#">Library</a></li>
-                    <li><a href="#gallery-section">Project Gallery</a></li>
-                    <li><a href="https://docs.google.com/a/thegovlab.org/document/d/1gJOxnCdC2DdUnBw9M7fViMpLzc7LZrlPL5iFRspDzw0/pub">FAQ</a></li>
-                    <li><a href="mailto:info-academy@thegovlab.org">Contact Us</a></li>
-                    <li><a href="https://govlab-dev.appspot.com">Sign-in</a></li>
-                </ul>
-            </nav>
+<body>
+  <nav class="b-navigation" role="navigation">
+    <h2>Menu</h2>
+    <a href="http://thegovlab.org">GovLab</a>
+    <a href="#">Library</a>
+    <a href="#gallery-section">Project Gallery</a>
+    <a href="https://docs.google.com/a/thegovlab.org/document/d/1gJOxnCdC2DdUnBw9M7fViMpLzc7LZrlPL5iFRspDzw0/pub">FAQ</a>
+    <a href="mailto:info-academy@thegovlab.org">Contact Us</a>
+    <a id="nav-sign-in" href="https://govlab-dev.appspot.com">Sign-in</a>
+  </nav>  
+  <div class="b-top-layer">
+    <header role="header">
+      <div class="b-centered">
+        <span class="e-trigger icon-menu"></span>
+        
+        <div class="b-branding">
+          <a href="#" class="b-govlab-logo"><img src="assets/govlab-logo.png" alt=""></a>
+          <span class="b-academy-logo"><img src="assets/academy-logo.png" alt=""></span>
         </div>
+      </div>
     </header>
 
-    <div class="main"> <!-- Critical for vertical scroll -->
-
-    <!-- Site banner -->
-    <section>
-    <div class="middle">
-        <div class="container">
-            <h1>What is the GovLab Academy</h1>
-            <p class="gl-large">The goal of the GovLab Academy is to support a new generation of public entrepreneurs to tap the intelligence of citizens and create actionable projects that improve people’s lives.</p>
-            <p class="gl-large">We work in partnership to:
-                <ul class="gl-large">
+    <section class="b-centered b-content">
+        <h1>What is the GovLab Academy</h1>
+        <p>The goal of the GovLab Academy is to support a new generation of public entrepreneurs to tap the intelligence of citizens and create actionable projects that improve people’s lives.</p>
+        <ul>
             <li>Build an open-access library of interactive resources focused on innovations in smarter governance</li>
             <li>Grow a network of like-minded collaborators working on public problems and widen the pool of mentors</li>
             <li>Via the ‘Accelerator’ program the Academy offers structured programs which provide would-be civic innovators with the training, practical assistance and support they need to get their project ready to launch. This programming is delivered face-to-face and online.</li>
-            </p>
-        </div>
-    </div>
+        </ul>
     </section>
 
-    <section>
-    <div class="middle">
-        <div class="container">
-            <h1>What people say</h1>
+    <section id="quotes" class="b-centered b-content">
+      <h1>What people say</h1>
+      <blockquote class="b-quotes b-half">
+          <p class="e-quote">"I'm looking forward to this year's reunion and catching up with everyone."</p>
+          <small class="e-quote-author">Alan K.</small>
+      </blockquote>
 
-            <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8">
-                    <blockquote><p>"I'm looking forward to this year's reunion and catching up with everyone."</p><p><small>Alan K.</small></p></blockquote>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-8">
-                    <blockquote><p>"I'm looking forward to this year's reunion and catching up with everyone."</p><p><small>Beth N.</small></p></blockquote>
-                </div>
-                <div class="col-md-4">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8">
-                    <blockquote><p>"I'm looking forward to this year's reunion and catching up with everyone."</p><p><small>Nikki Z.</small></p></blockquote>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-8">
-                    <blockquote><p>"I'm looking forward to this year's reunion and catching up with everyone."</p><p><small>Celia H.</small></p></blockquote>
-                </div>
-                <div class="col-md-4">
-                </div>
-            </div>
-        </div>
-    </div>
+      <blockquote class="b-quotes b-half">
+          <p class="e-quote">"I'm looking forward to this year's reunion and catching up with everyone."</p>
+          <small class="e-quote-author">Beth N.</small>
+      </blockquote>
+      <blockquote class="b-quotes b-half">
+          <p class="e-quote">"I'm looking forward to this year's reunion and catching up with everyone."</p>
+          <small class="e-quote-author">Nikki Z.</small>
+      </blockquote>
+      <blockquote class="b-quotes b-half">
+          <p class="e-quote">"I'm looking forward to this year's reunion and catching up with everyone."</p>
+          <small class="e-quote-author">Celia H.</small>
+      </blockquote>
     </section>
 
-<!-- Middle content section -->
-    <section>
-    <div class="middle">
-        <div id="gallery-section" class="container">
-            <h1>Some of our past projects</h1>
-            <div id="gallery-caroussel" class="slider">
-              <div class="project-slide">
-                <h3>Project I</h3>
-                <p>this is a great project about crowdfunding.</p>
-              </div>
-              <div class="project-slide">
-                <h3>Project II</h3>
-                <p>This is another great project about homelessness.</p>
-              </div>
-              <div class="project-slide">
+    <section id="gallery-section" class="b-centered b-content">
+      <h1>Some of our past projects</h1>
+      <div class="b-slider">
+        <div class="e-slider-strip">
+          <div class="e-slide">
+              <h3>Project I</h3>
+              <p>this is a great project about crowdfunding.</p>
+          </div>
+          <div class="e-slide">
+              <h3>Project II</h3>
+              <p>This is another great project about homelessness.</p>
+          </div>
+          <div class="e-slide">
               <h3>Project III</h3>
-                <p>This is another great project about hunger.</p>
-              </div>
-              <div class="project-slide">
-                <h3>Project IV</h3>
-                <p>This is another great project about bribery.</p>
-              </div>
-            </div>
-        </div> 
-    </div>
-</section>  
+              <p>This is another great project about hunger.</p>
+          </div>
+          <div class="e-slide">
+              <h3>Project IV</h3>
+              <p>This is another great project about bribery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="b-centered b-content">
+      <h1>Use Twitter Bootstrap to create responsive designs</h1>
+      <div class="b-half">
+        <p>Twitter bootstrap allows web developers and designers to quickly create attractive and responsive website templates. This tutorial provided by <a href="http://www.revillweb.com/">RevillWeb.com</a> will show you how to use Twitter Bootstrap 3 to create this responsive website template.</p>
+        <a href="http://www.revillweb.com/tutorials/bootstrap-tutorial/" class="b-button">TO THE TUTORIAL</a>
+      </div>
+      <div class="b-half m-right">
+        <div class="b-resources">
+          <h2>Resources</h2>
+          <ul class="nav nav-pills nav-stacked">
+              <li><a href="http://getbootstrap.com/" target="_blank">Download Twitter Bootstrap</a></li>
+              <li><a href="https://www.bootstrapresponsivethemes.com/" target="_blank">Bootstrap Responsive Themes</a></li>
+              <li><a href="http://amzn.to/1iO8NBg" target="_blank">UK: HTML & CSS: Design and Build Web Sites</a></li>
+              <li><a href="http://amzn.to/1lESKDp" target="_blank">UK: Bootstrap Site Blueprints</a></li>
+              <li><a href="http://amzn.to/1oXAbu6" target="_blank">US: HTML & CSS: Design and Build Web Sites</a></li>
+              <li><a href="http://amzn.to/1lESF2w" target="_blank">US: Bootstrap Site Blueprints</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <!-- Middle content section -->
-    <section>
-    <div class="middle">
-        <div class="container">
-            <div class="col-md-9 content">
-                <h2>Use Twitter Bootstrap to create responsive designs for desktop, tablet &amp; mobile</h2>
-                <p>Twitter bootstrap allows web developers and designers to quickly create attractive and responsive website templates. This tutorial provided by <a href="http://www.revillweb.com/">RevillWeb.com</a> will show you how to use Twitter Bootstrap 3 to create this responsive website template.</p>
-                <div class="to-tutorial">
-                    <p><strong>Visit the tutorial now to learn more:</strong></p>
-                    <a href="http://www.revillweb.com/tutorials/bootstrap-tutorial/" class="btn btn-success">TO THE TUTORIAL</a>
-                </div>
+    <footer>
+        <div class="b-centered">
+            <div class="b-footer-section">
+              <h3>
+                  <span class="glyphicon glyphicon-heart"></span>Learn More</h3>
+              <p>Content for the first footer section.</p>
             </div>
-            <div class="col-md-3">
-                <h2>Resources</h2>
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a href="http://getbootstrap.com/" target="_blank">Download Twitter Bootstrap</a></li>
-                    <li><a href="https://www.bootstrapresponsivethemes.com/" target="_blank">Bootstrap Responsive Themes</a></li>
-                    <li><a href="http://amzn.to/1iO8NBg" target="_blank">UK: HTML & CSS: Design and Build Web Sites</a></li>
-                    <li><a href="http://amzn.to/1lESKDp" target="_blank">UK: Bootstrap Site Blueprints</a></li>
-                    <li><a href="http://amzn.to/1oXAbu6" target="_blank">US: HTML & CSS: Design and Build Web Sites</a></li>
-                    <li><a href="http://amzn.to/1lESF2w" target="_blank">US: Bootstrap Site Blueprints</a></li>
-                </ul>
+            <div class="b-footer-section">
+              <h3>
+                  <span class="glyphicon glyphicon-star"></span>Apply for the Academy</h3>
+              <p>Content for the second footer section.</p>
+            </div>
+            <div class="b-footer-section">
+              <h3>
+                  <span class="glyphicon glyphicon-music"></span>GovLab@NYU</h3>
+              <p>Content for the third footer section.</p>
             </div>
         </div>
-    </div>
-</section>
-
-
-
-  <section>
-    <!-- Site footer -->
-    <div class="bottom">
-        <div class="container">
-            <div class="col-md-4">
-                <h3><span class="glyphicon glyphicon-heart"></span> Learn More</h3>
-                <p>Content for the first footer section.</p>
-            </div>
-            <div class="col-md-4">
-                <h3><span class="glyphicon glyphicon-star"></span> Apply for the Academy</h3>
-                <p>Content for the second footer section.</p>
-            </div>
-            <div class="col-md-4">
-                <h3><span class="glyphicon glyphicon-music"></span> GovLab@NYU</h3>
-                <p>Content for the third footer section.</p>
-            </div>
-        </div>
-    </div>
-  </section>
+    </footer>
   </div>
-
     <!-- Include jQuery and bootstrap JS plugins -->
     <script type="text/javascript" src="includes/jquery/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="includes/jquery/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="includes/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="includes/jquery/jquery.onepage-scroll.min.js"></script>
-    <script type="text/javascript" src="includes/slick/slick.min.js"></script>
-    <script>
+    <script type="text/javascript" src="scripts.js"></script>
+    <!--<script type="text/javascript" src="includes/jquery/jquery-migrate-1.2.1.min.js"></script> -->
+    <!--<script type="text/javascript" src="includes/bootstrap/js/bootstrap.min.js"></script> -->
+    <!--<script type="text/javascript" src="includes/jquery/jquery.onepage-scroll.min.js"></script> -->
+    <!--<script type="text/javascript" src="includes/slick/slick.min.js"></script> -->
+    <!--<script>
         $( document ).ready(function() {
             $(".main").onepage_scroll({updateURL: false, pagination: true});
             $('#gallery-caroussel').slick({
@@ -190,6 +155,14 @@
               /* setting-name: setting-value */
             });
         });
+    </script> -->
+
+    <!-- Claudio Local Development Scripts -->
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
+    <script type="text/javascript" src="//use.typekit.net/ipr0jtq.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
+
 </html>
