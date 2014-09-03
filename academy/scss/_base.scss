@@ -11,6 +11,10 @@ body {
   border-top: 3px solid $primary-color;
 }
 
+.b-top-layer {
+    background-color: $white;
+}
+
 .b-centered {
   max-width: 960px;
   margin: 0 auto;
