@@ -6,7 +6,7 @@ body {
   padding: 0;
   color: #444444; }
 
-header {
+body {
   border-top: 3px solid #f05a28; }
 
 .b-centered {
@@ -237,7 +237,9 @@ footer {
       text-decoration: none; }
 
   .b-navigation {
-    float: right; }
+    width: 960px;
+    text-align: right;
+    margin: 0 auto; }
     .b-navigation a {
       display: inline-block;
       padding: 8px 16px; }
@@ -247,12 +249,16 @@ footer {
       text-decoration: none; }
     .b-navigation::before {
       display: none; }
+    .b-navigation .e-nav-title {
+      display: none; }
 
   .b-govlab-logo {
-    display: block;
-    padding: 10px 0 10px 10px; }
+    display: block; }
     .b-govlab-logo img {
       max-width: 20%; }
+
+  #main-navigation-trigger {
+    display: none; }
 
   .b-academy-logo {
     width: 80px;
@@ -270,6 +276,12 @@ footer {
       width: 70%;
       position: relative;
       top: 15%; }
+
+  .b-govlab-logo {
+    display: inline-block;
+    padding: 10px 0 10px 10px; }
+    .b-govlab-logo img {
+      max-width: 40%; }
 
   footer {
     clear: both;
@@ -290,6 +302,8 @@ footer {
       margin-right: 0; }
     .b-half h1 {
       margin-top: 0; }
+    .b-half .e-half-content {
+      width: 100%; }
 
   #quotes {
     padding-bottom: 30px; }
@@ -310,3 +324,12 @@ footer {
     .b-slider .e-slide h3, .b-slider .e-slide p {
       padding-right: 15px;
       padding-left: 15px; } }
+#dashboard .b-dashboard-header h1 {
+  padding-bottom: 0;
+  margin-bottom: 10px; }
+#dashboard .b-dashboard-header .e-username {
+  padding-top: 0;
+  margin-top: 0; }
+#dashboard .b-content {
+  padding-bottom: 20px;
+  margin-bottom: 30px; }
