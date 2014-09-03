@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>{{user}}'s Weekly Snippet ({{start_date}}-{{end_date}})</title>
+    <script src="/assets/EpicEditor-v0.2.2/js/epiceditor.min.js"></script>
+  <head>
+    <body>
+
+      <!-- Header with name of user; skipped in embed mode. -->
+      {% if embedded == "false" %}
+      <div class="snippet-header"><p>Showing snippet for user <span class="snippet-header-user">{{username}}@{{domain}}</span></p>
+      </div>
+      {% endif %}
+      
+      <div id="week-nav">
+        <a class="nav-prev" href="/snippets/{{username}}/{{prev_week}}?embedded={{embedded}}">Prev</a>&nbsp;
+        <span class="snippet-header-date">{{start_date}}</span>
+        ⟷
+        <span class="snippet-header-date">{{end_date}}</span>&nbsp;
+        <a class="nav-next" href="/snippets/{{username}}/{{next_week}}?embedded={{embedded}}">Next</a>
+      </div>
+
+      {% if edit %}
+      <form action="/snippets/{{username}}/{{week}}?embedded={{embedded}}" method="POST">
+        <div><textarea style="display:none;" id="snippet_data" name="snippet_data" >{{snippet_content}}</textarea></div>
+        <div><input type="submit" value="Update Your Snippet"></div>
+      </form>
+      {% else %}
+      <div><textarea style="display:none;" id="snippet_data">{{snippet_content}}</textarea></div>
+      {% endif %}
+
+      <div id="snippet-editor" style="width:400px;"></div>
+
+      <script>
+            var options = { container: 'snippet-editor',
+                            basePath: '/assets/EpicEditor-v0.2.2',
+	                    clientSideStorage: false,
+	                    textarea: 'snippet_data',
+	                    autogrow: true,
+	                    {% if edit %} button: { fullscreen: false } {% else %} button: false {% endif %}
+	                  };
+            var editor = new EpicEditor(options).load();
+	    editor.preview();
+      </script>
+    </body>
+</html>

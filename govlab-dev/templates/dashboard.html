@@ -3,6 +3,11 @@
 	<title>Your Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  section { margin-top: 50px;}
+  .small-note { font-size: 9px; }
+  </style>
 	<script>
 		function getImage() {
 			var config = {
@@ -31,26 +36,53 @@
 
 </head>
 <body>
-	<h1>Welcome, this is your dashboard &nbsp; <img class="avatar" id="me" src=""/></h1>
-<h2>Latest News</h2>
-<div id="latest-news">
-	<iframe src="https://docs.google.com/a/thegovlab.org/document/d/1PVAkn_UUHhc1OgQ2bSFznZE-m54dT8UDPm8WzF3hLlI/pub?embedded=true&rm=minimal" frameborder="0" width="100%"></iframe>
+
+  <h1>Welcome &nbsp; <img class="avatar" id="me" src=""/></h1>
+
+<section>
+    <div class="container-fluid">
+      <h2>Onboarding</h2>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <iframe src="https://docs.google.com/a/thegovlab.org/presentation/d/1f5E--vE24Bz95umWj5cFGho5SPnyUSaf7_AsZd8HYxs/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+      <div class="col-md-3"></div>
+  </div>
 </div>
+  </section>
 
-<h2>Onboarding</h2>
-<iframe src="https://docs.google.com/a/thegovlab.org/presentation/d/1f5E--vE24Bz95umWj5cFGho5SPnyUSaf7_AsZd8HYxs/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  <section>
+    <div class="container-fluid">
+      <h2>Latest news &amp; class calendar</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <iframe src="https://docs.google.com/a/thegovlab.org/document/d/1PVAkn_UUHhc1OgQ2bSFznZE-m54dT8UDPm8WzF3hLlI/pub?embedded=true&rm=minimal" frameborder="0" width="100%" height="400"></iframe>
+        </div>
+      <div class="col-md-6">
+        <iframe src="https://www.google.com/calendar/embed?src=thegovlab.org_df4b1u1qj5ktbrso57s2ojkrsk%40group.calendar.google.com&ctz=America/New_York&showTitle=1" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    </div>  
+  </section>
 
-<h2>Your weekly snippet</h2>
-<div id="snippets">
-<iframe src="https://govlab-dev.appspot.com/snippets/?embedded=true" frameborder="0" width="480"></iframe>
-</div>
-
-<h2>My Calendar</h2>
-<iframe src="https://www.google.com/calendar/embed?src={{user}}&ctz=America/New_York&showTitle=0" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-
-<h2>My Documents</h2>
-<iframe src="https://drive.google.com/embeddedfolderview?id=0B-BTzZGOWDTHc3ZNcWlKaUpSU00#list" width="480" height="300" frameborder="0"></iframe>
-
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="weekly-snippet" class="col-md-6">
+          <h2>My weekly snippet</h2>
+          <p class="small-note">A snippet is short piece of text where you write down what you did last week and what they plan to do in the upcoming weeks. This is for you to keep track of your progress; this is for others to see what you are up to. See <a href="http://blog.idonethis.com/why-google-snippets/">here</a> and <a href="http://blog.idonethis.com/silicon-valleys-productivity-secret/">here</a> for more info about the origin of snippets.</p>
+          <div id="snippet-frame" style="border: 1px solid;">
+            <iframe src="https://govlab-dev.appspot.com/snippets/?embedded=true" height="400px" frameborder="0" width="100%"></iframe>
+          </div>
+        </div>
+        <div id="my-documents" class="col-md-6">
+          <h2>My working documents</h2>
+          <iframe src="https://drive.google.com/embeddedfolderview?id=0B-BTzZGOWDTHc3ZNcWlKaUpSU00#list" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div> 
+  </section>
 
 <script src="https://apis.google.com/js/client.js?onload=getImage"></script>
 
