@@ -302,6 +302,8 @@ footer {
       margin-right: 0; }
     .b-half h1 {
       margin-top: 0; }
+    .b-half .e-half-content {
+      width: 100%; }
 
   #quotes {
     padding-bottom: 30px; }
@@ -322,3 +324,12 @@ footer {
     .b-slider .e-slide h3, .b-slider .e-slide p {
       padding-right: 15px;
       padding-left: 15px; } }
+#dashboard .b-dashboard-header h1 {
+  padding-bottom: 0;
+  margin-bottom: 10px; }
+#dashboard .b-dashboard-header .e-username {
+  padding-top: 0;
+  margin-top: 0; }
+#dashboard .b-content {
+  padding-bottom: 20px;
+  margin-bottom: 30px; }
