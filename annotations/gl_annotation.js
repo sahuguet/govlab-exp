@@ -17,13 +17,13 @@ function injectCSS(href) {
 }
 
 [
-    'http://craigsworks.com/projects/qtip2/packages/nightly/jquery.qtip.css',
+    'http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css',
     'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',
 ].forEach(injectCSS);
 
 [
     'https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
-    'http://craigsworks.com/projects/qtip2/packages/nightly/jquery.qtip.js',
+    'http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js',
     'https://cdn.firebase.com/js/client/1.0.17/firebase.js',
     'https://cdn.firebase.com/v0/firebase-simple-login.js',
     'http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js',
